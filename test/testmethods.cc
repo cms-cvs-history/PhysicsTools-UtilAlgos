@@ -1,4 +1,4 @@
-// $Id: testmethods.cc,v 1.1 2006/07/27 14:20:38 llista Exp $
+// $Id: testmethods.cc,v 1.2 2006/07/27 14:24:52 llista Exp $
 #include <cppunit/extensions/HelperMacros.h>
 #include "PhysicsTools/UtilAlgos/interface/methods.h"
 #include "DataFormats/TrackReco/interface/Track.h"
@@ -35,16 +35,16 @@ void testMethods::checkAll() {
   {
     methodMap::const_iterator f = m.find( "pt" );
     CPPUNIT_ASSERT( f != m.end() );
-    Object ret = f->second.first.Invoke( trko );
     CPPUNIT_ASSERT( f->second.second == reco::methods::doubleType );
+    Object ret = f->second.first.Invoke( trko );
     double * val = static_cast<double *>( ret.Address() );
     CPPUNIT_ASSERT( * val == pt );
   }
   {
     methodMap::const_iterator f = m.find( "chi2" );
     CPPUNIT_ASSERT( f != m.end() );
-    Object ret = f->second.first.Invoke( trko );
     CPPUNIT_ASSERT( f->second.second == reco::methods::doubleType );
+    Object ret = f->second.first.Invoke( trko );
     double * val = static_cast<double *>( ret.Address() );
     CPPUNIT_ASSERT( * val == chi2 );
   }
