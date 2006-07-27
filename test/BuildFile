@@ -1,0 +1,5 @@
+<bin name="testPhysicsToolsUtilAlgos" file="testObjectMethodSet.cc,testRunner.cpp">
+  <use name=PhysicsTools/UtilAlgos>
+  <use name=DataFormats/TrackReco>
+  <use name=cppunit>
+</bin>
