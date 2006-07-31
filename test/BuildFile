@@ -1,4 +1,4 @@
-<bin name="testPhysicsToolsUtilAlgos" file="testmethods.cc,testRunner.cpp">
+<bin name="testPhysicsToolsUtilAlgos" file="testMethodMap.cc,testRunner.cpp">
   <use name=PhysicsTools/UtilAlgos>
   <use name=DataFormats/TrackReco>
   <use name=cppunit>
