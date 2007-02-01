@@ -9,9 +9,9 @@ private:
   /// process one event
   void analyze( const edm::Event& , const edm::EventSetup& );
   /// histograms
-  TH1F * h_test;
+  TH1F * h_test1, * h_test2;
   /// sub-directory name
-  std::string dir_;
+  std::string dir1_, dir2_;
 };
 
 #include "FWCore/ServiceRegistry/interface/Service.h"
@@ -21,15 +21,20 @@ using namespace edm;
 using namespace std;
 
 TestTFileServiceAnalyzer::TestTFileServiceAnalyzer( const ParameterSet & cfg ) :
-  dir_( cfg.getParameter<string>( "dir" ) ) {
+  dir1_( cfg.getParameter<string>( "dir1" ) ),
+  dir2_( cfg.getParameter<string>( "dir2" ) ) {
   Service<TFileService> fs;
-  if ( ! dir_.empty() )
-    fs->cd( dir_ );
-  h_test = fs->make<TH1F>( "test"  , "test histogram", 100,  0., 100. );
+  if ( ! dir1_.empty() )
+    fs->cd( dir1_ );
+  h_test1 = fs->make<TH1F>( "test1"  , "test histogram #1", 100,  0., 100. );
+  if ( ! dir2_.empty() )
+    fs->cd( dir2_ );
+  h_test2 = fs->make<TH1F>( "test2"  , "test histogram #2", 100,  0., 100. );
 }
 
 void TestTFileServiceAnalyzer::analyze( const Event& evt, const EventSetup& ) {
-  h_test->Fill( 50. );
+  h_test1->Fill( 50. );
+  h_test2->Fill( 60. );
 }
 
 #include "FWCore/Framework/interface/MakerMacros.h"
