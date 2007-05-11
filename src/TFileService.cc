@@ -1,5 +1,5 @@
 #include "PhysicsTools/UtilAlgos/interface/TFileService.h"
-#include "DataFormats/Provenance/interface/ModuleDescription.h"
+#include "DataFormats/Common/interface/ModuleDescription.h"
 #include "FWCore/ServiceRegistry/interface/ActivityRegistry.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "TFile.h"
@@ -11,7 +11,7 @@ TFileService::TFileService( const ParameterSet & cfg, ActivityRegistry & r ) :
   file_( TFileDirectory::file_ ) {
   r.watchPreModuleConstruction( this, & TFileService::setDirectoryName ); 
   r.watchPreModule( this, & TFileService::setDirectoryName ); 
-  r.watchPreModuleBeginJob( this, & TFileService::setDirectoryName ); 
+  //  r.watchPreModuleBeginJob( this, & TFileService::setDirectoryName ); 
 }
 
 TFileService::~TFileService() {
