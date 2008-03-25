@@ -32,7 +32,6 @@ void TFileService::setDirectoryName( const ModuleDescription & desc ) {
 }
 
 void TFileService::afterBeginJob() {
-
   if(!fileName_.empty())  {
     if(!fileNameRecorded_) {
       string fullName;
@@ -44,7 +43,7 @@ void TFileService::afterBeginJob() {
       fileData.insert(make_pair("Source","TFileService"));
 
       Service<JobReport> reportSvc;
-      reportSvc->reportAnalysisFile(fullName,fileData);
+      //      reportSvc->reportAnalysisFile(fullName,fileData);
       fileNameRecorded_ = true;
     }
   }
