@@ -1,0 +1,72 @@
+
+module configurableAnalysis = ConfigurableAnalysis{
+
+	PSet InputTags={
+		InputTag electrons=selectedLayer1Electrons
+	}#PSet InputTags
+
+	PSet Variables={
+		PSet testVar={
+	         string method = "CandidateExpressionVariable"
+        	 string src="electrons"
+                 uint32 index=0
+                 string expr="pt"
+		}
+		PSet testSplitter={
+		 string method="VarSplitter"
+                 string var="testVar"
+                 bool useUnderFlow=false
+                 bool useOverFlow=true
+                 vdouble slots={0, 10, 40, 50, 100, 200, 500, 1000}
+                 string labelsFormat="test variable [%2.f , %2.f]"
+                }
+	}#PSet Variable
+
+	PSet Selections={
+		PSet filters={
+		 PSet testFilter={
+                  string selector="VariableEventSelector"
+                  string var = "testVar"
+                  double min = 5.0
+		  double max = 135.0
+		 }
+		}#PSet filters
+
+		PSet selections={
+			PSet fullSelection={
+				vstring filterOrder={ "testFilter" }
+				bool ntuplize=true
+				bool makeContentPlots=true
+				bool makeFinalPlots=true
+				bool makeCumulativePlots=true
+				bool makeAllButOnePlots=true
+				bool makeSummaryTable=true
+				uint32 nMonitor=1000
+			}
+		}#PSet selections
+	}#PSet Selections
+
+	vstring flows={ "fullSelection" }
+	bool workAsASelector = true
+
+	PSet Plotter={
+	string ComponentName = "VariablePlotter"
+	PSet TH1s ={
+		PSet testHisto={
+			vstring splitters={ "testSplitter" }		
+			string title="a test title"
+			PSet xAxis={
+                                string var="testVar"
+                                string Label="a test x label"
+				uint32 nBins=600
+			        double Min=0
+			        double Max=1200
+                        }
+		}
+	}
+	PSet TH2s ={}
+	PSet TProfiles={}
+	}#PSet Plotter
+
+	PSet Ntupler={}	
+}
