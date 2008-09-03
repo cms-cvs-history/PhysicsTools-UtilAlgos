@@ -6,7 +6,7 @@
 DEFINE_SEAL_MODULE();
 
 #include "PhysicsTools/UtilAlgos/interface/UpdaterService.h"
-DEFINE_FWK_SERVICE( UpdaterService );
+// disable for now DEFINE_FWK_SERVICE( UpdaterService );
 
 #include "PhysicsTools/UtilAlgos/interface/EventSelector.h"
 #include "PhysicsTools/UtilAlgos/plugins/VariableEventSelector.h"
