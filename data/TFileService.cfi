@@ -1,3 +1,0 @@
-service = TFileService {
-  string fileName = "histo.root"
-}
