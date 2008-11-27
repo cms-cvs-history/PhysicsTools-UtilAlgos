@@ -1,5 +1,0 @@
-service = InputTagDistributorService {}
-service = VariableHelperService {}
-service = UpdaterService {}
-
-include "PhysicsTools/UtilAlgos/data/configurableAnalysis.cfi"
