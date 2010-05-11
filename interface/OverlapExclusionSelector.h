@@ -1,7 +1,7 @@
 #ifndef PhysicsTools_UtilAlgos_OverlapExclusionSelector_h
 #define PhysicsTools_UtilAlgos_OverlapExclusionSelector_h
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
-#include "FWCore/ParameterSet/interface/InputTag.h"
+#include "FWCore/Utilities/interface/InputTag.h"
 #include "FWCore/Framework/interface/Event.h"
 #include "DataFormats/Common/interface/Handle.h"
 
