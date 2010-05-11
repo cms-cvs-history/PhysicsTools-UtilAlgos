@@ -3,7 +3,7 @@
 // Package:    ConfigurableAnalysis
 // Class:      ConfigurableAnalysis
 // 
-/**\class ConfigurableAnalysis ConfigurableAnalysis.cc PhysicsTools/UtilAlgos/src/ConfigurableAnalysis.cc
+/**\class ConfigurableAnalysis ConfigurableAnalysis.cc CommonTools/UtilAlgos/src/ConfigurableAnalysis.cc
 
  Description: <one line class summary>
 
@@ -13,7 +13,7 @@
 //
 // Original Author:  Jean-Roch Vlimant
 //         Created:  Mon Apr 14 11:39:51 CEST 2008
-// $Id: ConfigurableAnalysis.cc,v 1.5 2008/08/31 16:03:06 vlimant Exp $
+// $Id: ConfigurableAnalysis.cc,v 1.8 2009/09/17 12:47:39 llista Exp $
 //
 //
 
@@ -48,7 +48,7 @@ class ConfigurableAnalysis : public edm::EDFilter {
       ~ConfigurableAnalysis();
 
    private:
-      virtual void beginJob(const edm::EventSetup&);
+      virtual void beginJob();
       virtual bool filter(edm::Event&, const edm::EventSetup&);
       virtual void endJob() ;
 
@@ -214,7 +214,7 @@ bool ConfigurableAnalysis::filter(edm::Event& iEvent, const edm::EventSetup& iSe
 
 // ------------ method called once each job just before starting event loop  ------------
 void 
-ConfigurableAnalysis::beginJob(const edm::EventSetup&)
+ConfigurableAnalysis::beginJob()
 {
 }
 
