@@ -4,7 +4,7 @@ process = cms.Process("Test")
 
 process.source = cms.Source("PoolSource",
   fileNames = cms.untracked.vstring(
-    "/store/relval/CMSSW_4_2_0/RelValZTT/GEN-SIM-RECO/START42_V9-v1/0054/107DB9B4-7D5E-E011-91E9-001A92810AEA.root"
+    "/store/relval/CMSSW_5_3_6-START53_V14/RelValZTT/GEN-SIM-RECO/v2/00000/4E4AD1B8-FC29-E211-B998-001A928116B4.root"
   )
 )
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(100) )
@@ -19,7 +19,7 @@ process.MessageLogger = cms.Service("MessageLogger")
 ## BasicMuonAnalyzer class in PhysicsTools/UtilAlgos/interface/BasicMuonAnlyzer.h. You will also find
 ## back the input parameters to the module.
 process.muonAnalyzer = cms.EDAnalyzer("WrappedEDMuonAnalyzer",
-  muons = cms.InputTag("muons"),                                             
+  muons = cms.InputTag("muons"),
 )
 
 process.TFileService = cms.Service("TFileService",
